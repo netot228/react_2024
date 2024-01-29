@@ -1,0 +1,37 @@
+.expenseItem {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #eee;
+    padding: 20px;
+    font: 400 18px/1 arial;
+    color: #292929;
+    margin: 2px 0;
+
+    &Date {
+        display: inline-flex;
+        background: #aaa;
+        padding: 10px;
+    }
+
+    &Info {
+        display: inline-flex;
+        flex-flow: column;
+        align-items: flex-end;
+        padding: 10px;
+    }
+    &Cost {
+        position: relative;
+        font: 700 24px/1 arial;
+
+        &:before {
+            content: '$';
+            display: inline-block;
+            margin-right: 5px;
+        }
+    }
+    &Name {
+        font: 400 18px/1 arial;
+        color: #808080;
+    }
+}

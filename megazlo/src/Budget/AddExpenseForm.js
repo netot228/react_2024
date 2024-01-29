@@ -14,6 +14,7 @@ export default function AddExpenseForm(props){
 
     const [inputsAlert, setInputsAlert] = useState(inputAlertFlags);
     const [inputsValue, setInputsValue] = useState(inputValuesObj);
+    const [submitFlag, setSubmitFlag] = useState(false);
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -40,16 +41,7 @@ export default function AddExpenseForm(props){
 
         setInputsValue({cost: '', date: '', name: ''});
         setInputsAlert(inputAlertFlags);
-
-
-        let test = e.target.querySelector('input[name="name"]');
-        console.dir(test);
-        test.value = 'zzz';
-
-        console.dir(AddExpenseForm);
-        // AddExpenseForm.forceUpdate();
-
-
+        setSubmitFlag(true);
 
     }
 
@@ -57,15 +49,15 @@ export default function AddExpenseForm(props){
         <form className={s.form} id="_id_add_expense_form" onSubmit={submitHandler}>
             <div className={s.form_item}>
                 <label>Enter the name of expense</label>
-                <Input type="text" value={inputsValue.name} name="name" alert={inputsAlert.name}/>
+                <Input type="text" value={inputsValue.name} submitFlag={submitFlag} name="name" alert={inputsAlert.name}/>
             </div>
             <div className={s.form_item}>
                 <label>Enter the cost</label>
-                <Input type="number" value={inputsValue.cost} name="cost"  alert={inputsAlert.cost}/>
+                <Input type="number" value={inputsValue.cost} submitFlag={submitFlag} name="cost"  alert={inputsAlert.cost}/>
             </div>
             <div className={s.form_item}>
                 <label>Enter the date of expense</label>
-                <Input type="date" value={inputsValue.date} name="date"  alert={inputsAlert.date}/>
+                <Input type="date" value={inputsValue.date} submitFlag={submitFlag} name="date"  alert={inputsAlert.date}/>
             </div>
             <input type="submit" value="add" />
         </form>

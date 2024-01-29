@@ -7,6 +7,9 @@ export default function Input(props){
     const inputRef = useRef(null);
 
     useEffect(()=>{
+        if(props.submitFlag){
+            setInputValue('');
+        }
         inputRef.current.className = props.alert && inputRef.current.value==='' ? s.red : '';
     })
 

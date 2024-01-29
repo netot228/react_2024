@@ -4,11 +4,13 @@ import Chart from "./Chart";
 import ExpenseList from "./ExpenseList";
 import {useState} from 'react';
 
+import expensesArr from './expensesArr';
+
 import s from './Budget.module.scss';
 
 export default function Budget(props){
 
-    let [expenses, setExpenses] = useState([]);
+    let [expenses, setExpenses] = useState(expensesArr);
 
     const addExpense = (data, event) =>{
         setExpenses(()=>{
