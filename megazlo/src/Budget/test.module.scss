@@ -1,0 +1,5 @@
+@import 'vars';
+.test {
+    background: var(--bg-color);
+    color: $red;
+}
